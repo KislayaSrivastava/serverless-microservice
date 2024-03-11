@@ -219,7 +219,9 @@ Click "Create Resource" in the middle pane under "Resources" heading. A resource
 ![Create resource method](./pictures/13.jpg)
 
 8. Select "POST" from drop down menu , then choose the lamdba function name in the search bar. Search for the lambda create "LambdaFunctionOverHttps". Select it. Leave everything as is and select "Create Method".
-The screen will refresh and below screen will be shown. This new screen has the integration directly with Lambda.  
+The screen will refresh and below screen will be shown. This new screen has the integration directly with Lambda.
+
+Click on the Lambda icon. A popup shows the name of the lambda function which is integrated. 
 
 ![Create lambda integration](./pictures/14.jpg)
 
