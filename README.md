@@ -101,7 +101,7 @@ First Create the custom policy with permission to DynamoDB and CloudWatch Logs. 
 
 ![Create function](./pictures/3.png)
 
-2. Select "Author from scratch". Use name **LambdaFunctionOverHttps** , select **Python 3.12** as Runtime. Under Permissions, select "Use an existing role", and select **lambda-apigateway-role** that we created, from the drop down
+2. Select "Author from scratch". Use name **LambdaFunctionOverHttps** , select **Python 3.12** as Runtime. Under Permissions, select **Use an existing role**, and select **lambda-apigateway-role** that we created, from the drop down
 
 3. Click "Create function"
 
@@ -231,17 +231,19 @@ Our API-Lambda integration is done!
 
 In this step, you deploy the API that you created to a stage called prod.
 
-1. Click "Actions", select "Deploy API"
-
-![Deploy API](./pictures/deploy-api-1.jpg)
+1. Click the "Deploy API" button on the top right corner of the screen. A pop-up comes up.
 
 2. Now it is going to ask you about a stage. Select "[New Stage]" for "Deployment stage". Give "Prod" as "Stage name". Click "Deploy"
 
-![Deploy API to Prod Stage](./pictures/deploy-api-2.jpg)
+    ![Deploy API to Prod Stage](./pictures/15.jpg)
+
+   Now the screen refreshes and the staging screen is shown.
+
+    ![Staging screen](./pictures/16.jpg)
 
 3. We're all set to run our solution! To invoke our API endpoint, we need the endpoint url. In the "Stages" screen, expand the stage "Prod", select "POST" method, and copy the "Invoke URL" from screen
 
-![Copy Invoke Url](./pictures/copy-invoke-url.jpg)
+![Copy Invoke Url](./pictures/17.jpg)
 
 
 ### Running our solution
@@ -254,8 +256,8 @@ In this step, you deploy the API that you created to a stage called prod.
     "tableName": "lambda-apigateway",
     "payload": {
         "Item": {
-            "id": "1234ABCD",
-            "number": 5
+            "id": "FirstNumberInserted",
+            "number": 25
         }
     }
 }
@@ -263,7 +265,7 @@ In this step, you deploy the API that you created to a stage called prod.
 2. To execute our API from local machine, we are going to use Postman and Curl command. You can choose either method based on your convenience and familiarity. 
     * To run this from Postman, select "POST" , paste the API invoke url. Then under "Body" select "raw" and paste the above JSON. Click "Send". API should execute and return "HTTPStatusCode" 200.
 
-    ![Execute from Postman](./pictures/create-from-postman.jpg)
+    ![Execute from Postman](./pictures/18.jpg)
 
     * To run this from terminal using Curl, run the below
     ```
@@ -271,9 +273,24 @@ In this step, you deploy the API that you created to a stage called prod.
     ```   
 3. To validate that the item is indeed inserted into DynamoDB table, go to Dynamo console, select "lambda-apigateway" table, select "Items" tab, and the newly inserted item should be displayed.
 
-![Dynamo Item](./pictures/dynamo-item.jpg)
+![Dynamo Item](./pictures/19.jpg)
 
-4. To get all the inserted items from the table, we can use the "list" operation of Lambda using the same API. Pass the following JSON to the API, and it will return all the items from the Dynamo table
+4. Run the step 1 of inserting records into DynamoDB table a few times each time modifying the **id** value and the **number** value in the above json.
+
+   ```json
+{
+    "operation": "create",
+    "tableName": "lambda-apigateway",
+    "payload": {
+        "Item": {
+            "id": "<NewValue>",
+            "number": <NewValue>
+        }
+    }
+}
+```
+
+4. Now post running the record 5/6 times, to get all the inserted items from the table, we can use the "list" operation of Lambda using the same API. Pass the following JSON to the API, and it will return all the items from the Dynamo table
 
 ```json
 {
@@ -283,7 +300,8 @@ In this step, you deploy the API that you created to a stage called prod.
     }
 }
 ```
-![List Dynamo Items](./pictures/dynamo-item-list.jpg)
+
+![List Dynamo Items](./pictures/20.jpg)
 
 We have successfully created a serverless API using API Gateway, Lambda, and DynamoDB!
 
