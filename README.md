@@ -445,3 +445,4 @@ To delete the API we created, in API gateway console, under APIs, select "Dynamo
 
 #### References
 [Custom Domain](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html)
+[Performance Testing in Postman](https://learning.postman.com/docs/collections/performance-testing/testing-api-performance/)
