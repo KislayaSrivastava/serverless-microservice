@@ -322,14 +322,15 @@ The performance testing of API can be very easily done through Postman. The step
    ![Creating Blank Collection](./pictures/23.jpg)
    
 3. Now in this new request section, select the dropdown and choose **POST**. Paste the invoke URL from the POST method used above to list the records. Also add the list operation JSON in the body in raw format.
+   
    ```json
    {
     "operation": "list",
     "tableName": "lambda-apigateway",
     "payload": {
     }
-  }
-  ```
+   }
+   ```
   Save this request by clicking save.
 
 ## Creating a Custom Domain Name 
