@@ -277,7 +277,7 @@ In this step, you deploy the API that you created to a stage called prod.
 
 4. Run the step 1 of inserting records into DynamoDB table a few times each time modifying the **id** value and the **number** value in the above json.
 
-   ```json
+```json
 {
     "operation": "create",
     "tableName": "lambda-apigateway",
