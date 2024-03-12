@@ -305,6 +305,33 @@ In this step, you deploy the API that you created to a stage called prod.
 
 We have successfully created a serverless API using API Gateway, Lambda, and DynamoDB!
 
+## Performance testing the API using Postman
+The performance testing of API can be very easily done through Postman. The steps to do that are listed below.
+
+## Setup for Creating Collection and POST Request
+1. Create a blank collection in Postman. Rename that to **ServerlessMicroServicePerformanceTesting**. The screen of Postman will look like this now.
+   
+   ![Creating Blank Collection](./pictures/21.jpg)
+   
+2. Now click on the three dots right adjacent to the named collection **ServerlessMicroServicePerformanceTesting**. A dropdown comes. Select **New Request**. 
+
+   ![Creating Blank Collection](./pictures/22.jpg)
+
+   This will create a new request. The Page will look like this now.
+
+   ![Creating Blank Collection](./pictures/23.jpg)
+   
+3. Now in this new request section, select the dropdown and choose **POST**. Paste the invoke URL from the POST method used above to list the records. Also add the list operation JSON in the body in raw format.
+   ```json
+   {
+    "operation": "list",
+    "tableName": "lambda-apigateway",
+    "payload": {
+    }
+  }
+  ```
+  Save this request by clicking save.
+
 ## Creating a Custom Domain Name 
 ### Step 1 Create a custom domain name
 ### Step 2 Create a certificate in ACM
