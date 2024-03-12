@@ -1,8 +1,9 @@
-# LevelUp! Lab for Serverless
+# Serverless CRUD using API GW/ Lambda/ DynamoDB
 
 ## Lab Overview And High Level Design
 
-Let's start with the High Level Design.
+We are going to create a Serverless Application using API GW/Lambda/DynamoDB using AWS Console. Then we are going to Loadtest it using Postman and finally we are going to implement Custom Domain on API GW. 
+Let us begin. 
 
 ![High Level Design](./pictures/high_level_design.jpg)
 
